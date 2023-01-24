@@ -472,3 +472,40 @@ class AtwDevice(Device):
         if value is None:
             value =  "2000-12-31T00:00:00"
         return datetime.strptime(value, "%Y-%m-%dT%H:%M:%S")
+        
+    @property
+    def daily_heating_produced_energy(self) -> Optional[float]:
+        """Return DailyHeatingEnergyProduced.
+        """
+        value = self.get_device_prop("DailyHeatingEnergyProduced")
+        if value is None:
+            return 0.0
+        return value
+
+    @property
+    def daily_cooling_produced_energy(self) -> Optional[float]:
+        """Return DailyCoolingEnergyProduced.
+        """
+        value = self.get_device_prop("DailyCoolingEnergyProduced")
+        if value is None:
+            return 0.0
+        return value
+
+    @property
+    def daily_hotwater_produced_energy(self) -> Optional[float]:
+        """Return DailyHotWaterEnergyProduced.
+        """
+        value = self.get_device_prop("DailyHotWaterEnergyProduced")
+        if value is None:
+            return 0.0
+        return value
+
+    @property
+    def daily_energy_produced_date(self) -> Optional[datetime]:
+        """Return timestamp of the day for the produced energy.
+
+        """
+        value = self.get_device_prop("DailyEnergyProducedDate")
+        if value is None:
+            value =  "2000-12-31T00:00:00"
+        return datetime.strptime(value, "%Y-%m-%dT%H:%M:%S")

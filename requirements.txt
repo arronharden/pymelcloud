@@ -3,3 +3,4 @@ asynctest
 pre-commit
 pytest
 pytest-asyncio
+asynctest
